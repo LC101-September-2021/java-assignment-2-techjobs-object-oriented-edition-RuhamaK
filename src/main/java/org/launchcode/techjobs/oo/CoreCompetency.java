@@ -22,20 +22,23 @@ public class CoreCompetency {
 
     @Override
     public String toString() {
-        return value;
+        return this.value;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CoreCompetency)) return false;
-        CoreCompetency that = (CoreCompetency) o;
-        return id == that.id;
-    }
-
+        if (this == o) {
+            return true;
+        }else if(!(o instanceof CoreCompetency)){
+            return false;
+        }else{
+            CoreCompetency that = (CoreCompetency)o;
+            return this.id == that.id;
+        }
+        }
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(new Object []{this.id});
     }
 
     // TODO: Use the "Generate" tool to add a getter and setter for the 'value' field but

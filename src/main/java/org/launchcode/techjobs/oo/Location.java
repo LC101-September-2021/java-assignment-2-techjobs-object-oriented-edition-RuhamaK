@@ -21,29 +21,31 @@ public class Location {
         this.value = value;
     }
 
-
-
     // Custom toString, equals, and hashCode methods:
 
     @Override
     public String toString() {
-        return value;
+        return this.value;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
+        if (this == o) {
+            return true;
+        } else if (!(o instanceof Location)) {
+            return false;
+        } else {
+            Location location = (Location)o;
+            return this.getId() == location.getId();
+        }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(new Object[]{this.getId()});
     }
 
-    // Getters and Setters:
+     // Getters and Setters:
 
     public int getId() {
         return id;

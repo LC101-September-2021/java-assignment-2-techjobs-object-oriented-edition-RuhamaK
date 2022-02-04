@@ -36,14 +36,18 @@ public class Job {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id;
+        if (this == o) {
+            return true;
+        }else if (o == null || getClass() != o.getClass()){
+            Job job = (Job) o;
+            return this.id == job.id;
+        }else{
+            return false;
+        }
     }
 
     @Override
-    public int hashCode() { return Objects.hash(id); }
+    public int hashCode() { return Objects.hash(new Object[]{this.id}); }
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
