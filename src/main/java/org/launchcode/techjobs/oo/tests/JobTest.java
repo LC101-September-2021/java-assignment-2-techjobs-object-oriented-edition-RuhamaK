@@ -18,7 +18,7 @@ public class JobTest {
     public void  testSettingJobId(){
     Job testJob1 = new Job();
     Job testJob2 = new Job();
-    assertEquals(testJob1.getId(),testJob2.getId() + 1);
+    assertEquals(testJob2.getId(),testJob1.getId() + 1);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class JobTest {
     Job testJob7 = new Job("Web Developer", new Employer("Google"), new Location("Seattle"),
                 new PositionType("Front End"), new CoreCompetency("JavaScript"));
 
-    String newJobString = "\n ID: 3\n Name: Web Developer\n Employer: Google\n Location: Seattle\n Position Type: Front End\n Core Competency: JavaScript\n";
+    String newJobString = "\n ID: 2\n Name: Web Developer\n Employer: Google\n Location: Seattle\n Position Type: Front End\n Core Competency: JavaScript\n";
 
     assertEquals(newJobString, testJob7.toString());
     }
@@ -74,7 +74,7 @@ public class JobTest {
     Job testJob8 = new Job("Data Analyst", new Employer("Hertz"), new Location(""),
             new PositionType("Entry level"), new CoreCompetency(""));
 
-    String missingDataString = "\n ID: 7\n Name: Data Analyst\n Employer: Hertz\n Location: Data not available\n" +
+    String missingDataString = "\n ID: 5\n Name: Data Analyst\n Employer: Hertz\n Location: Data not available\n" +
             " Position Type: Entry level\n Core Competency: Data not available\n";
 
     assertEquals(missingDataString, testJob8.toString());
