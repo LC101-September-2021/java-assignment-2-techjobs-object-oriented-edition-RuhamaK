@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo.tests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +19,7 @@ public class JobTest {
     public void  testSettingJobId(){
     Job testJob1 = new Job();
     Job testJob2 = new Job();
-    assertEquals(testJob2.getId(),testJob1.getId() + 1);
+    Assert.assertEquals(testJob2.getId(),testJob1.getId() + 1);
     }
 
     @Test
@@ -26,17 +27,17 @@ public class JobTest {
     Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
             new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertTrue(testJob3.getName() instanceof String);
-        assertTrue(testJob3.getEmployer() instanceof Employer);
-        assertTrue(testJob3.getLocation() instanceof Location);
-        assertTrue(testJob3.getPositionType() instanceof PositionType);
-        assertTrue(testJob3.getCoreCompetency() instanceof CoreCompetency);
+        Assert.assertTrue(testJob3.getName() instanceof String);
+        Assert.assertTrue(testJob3.getEmployer() instanceof Employer);
+        Assert.assertTrue(testJob3.getLocation() instanceof Location);
+        Assert.assertTrue(testJob3.getPositionType() instanceof PositionType);
+        Assert.assertTrue(testJob3.getCoreCompetency() instanceof CoreCompetency);
 
-        assertEquals("Product tester",testJob3.getName());
-        assertEquals("ACME",testJob3.getEmployer().getValue());
-        assertEquals("Desert",testJob3.getLocation().getValue());
-        assertEquals("Quality control",testJob3.getPositionType().getValue());
-        assertEquals("Persistence",testJob3.getCoreCompetency().getValue());
+        Assert.assertEquals("Product tester",testJob3.getName());
+        Assert.assertEquals("ACME",testJob3.getEmployer().getValue());
+        Assert.assertEquals("Desert",testJob3.getLocation().getValue());
+        Assert.assertEquals("Quality control",testJob3.getPositionType().getValue());
+        Assert.assertEquals("Persistence",testJob3.getCoreCompetency().getValue());
     }
 
     @Test
@@ -46,7 +47,7 @@ public class JobTest {
     Job testJob5 = new Job("Java developer", new Employer("IBM"), new Location("Denver"),
                 new PositionType("Senior Developer"), new CoreCompetency("Java"));
 
-    assertFalse(testJob4 == testJob5);
+    Assert.assertFalse(testJob4 == testJob5);
     }
 
     @Test
@@ -56,7 +57,7 @@ public class JobTest {
     String jobString = " ID: " + testJob6.getId() +"\n Name: " + testJob6.getName() + "\n Employer: " +testJob6.getEmployer() +
             "\n Location: " + testJob6.getLocation() + "\n Position Type: " + testJob6.getPositionType() + "\n Core Competency: " + testJob6.getCoreCompetency();
 
-    assertEquals('\n' + jobString + '\n', testJob6.toString());
+    Assert.assertEquals('\n' + jobString + '\n', testJob6.toString());
     }
 
     @Test
@@ -66,7 +67,7 @@ public class JobTest {
 
     String newJobString = "\n ID: 2\n Name: Web Developer\n Employer: Google\n Location: Seattle\n Position Type: Front End\n Core Competency: JavaScript\n";
 
-    assertEquals(newJobString, testJob7.toString());
+    Assert.assertEquals(newJobString, testJob7.toString());
     }
 
     @Test
@@ -77,7 +78,7 @@ public class JobTest {
     String missingDataString = "\n ID: 5\n Name: Data Analyst\n Employer: Hertz\n Location: Data not available\n" +
             " Position Type: Entry level\n Core Competency: Data not available\n";
 
-    assertEquals(missingDataString, testJob8.toString());
+    Assert.assertEquals(missingDataString, testJob8.toString());
     }
 
     @Test
@@ -86,7 +87,7 @@ public class JobTest {
 
     String onlyIdDataJobString = "OOPS! This job does not seem to exist.";
 
-    assertEquals(onlyIdDataJobString, testJob9.toString());
+    Assert.assertEquals(onlyIdDataJobString, testJob9.toString());
     }
 
 }
