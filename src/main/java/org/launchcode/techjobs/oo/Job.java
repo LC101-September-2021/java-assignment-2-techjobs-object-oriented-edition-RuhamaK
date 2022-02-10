@@ -33,39 +33,72 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
+        if (this == o)
             return true;
-        } else if (o == null || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) return false;
             Job job = (Job) o;
-            return this.id == job.id;
-        } else {
-            return false;
-        }
+            return getId() == job.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(new Object[]{this.id});
+        return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        String missingData = "Data not available";
+        String onlyIdDataJob = "OOPS! This job does not seem to exist.";
+
+        if (name.isEmpty() && employer.getValue().isEmpty() && location.getValue().isEmpty()
+                && positionType.getValue().isEmpty() && coreCompetency.getValue().isEmpty()) {
+            return onlyIdDataJob;
+        } else {
+
+            if (name.isEmpty()) {
+                name = missingData;
+            }
+            if (employer.getValue().isEmpty()) {
+                employer.setValue(missingData);
+            }
+            if (location.getValue().isEmpty()) {
+                location.setValue(missingData);
+            }
+            if (positionType.getValue().isEmpty()) {
+                positionType.setValue(missingData);
+            }
+            if (coreCompetency.getValue().isEmpty()) {
+                coreCompetency.setValue(missingData);
+            }
+
+            return "\n" +
+                    "ID: " + id +
+                    "\nName: " + name +
+                    "\nEmployer: " + employer +
+                    "\nLocation: " + location +
+                    "\nPosition Type: " + positionType +
+                    "\nCore Competency: " + coreCompetency +
+                    "\n";
+        }
     }
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
-    public int getId() { return id; }
+    public int getId() { return this.id; }
 
-    public String getName() { return name; }
+    public String getName() { return this.name; }
 
-    public Employer getEmployer() { return employer; }
+    public Employer getEmployer() { return this.employer; }
 
-    public Location getLocation() { return location; }
+    public Location getLocation() { return this.location; }
 
-    public PositionType getPositionType() { return positionType; }
+    public PositionType getPositionType() { return this.positionType; }
 
-    public CoreCompetency getCoreCompetency() { return coreCompetency; }
+    public CoreCompetency getCoreCompetency() { return this.coreCompetency; }
 
     public void setName(String name) { this.name = name; }
 
@@ -77,30 +110,6 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) { this.coreCompetency = coreCompetency; }
 
-    @Override
-    public String toString() {
-        String missingData = "Data not available";
-        String onlyIdDataJob = "OOPS! This job does not seem to exist.";
-
-        if (this.name.isEmpty() && this.employer.getValue().isEmpty() && this.location.getValue().isEmpty()
-                && this.positionType.getValue().isEmpty() && this.coreCompetency.getValue().isEmpty()) {
-            return onlyIdDataJob;}
-
-        if (this.name.isEmpty()) { name = missingData; }
-        if (this.employer.getValue().isEmpty()) { employer.setValue(missingData); }
-        if (this.location.getValue().isEmpty()) { location.setValue(missingData); }
-        if (this.positionType.getValue().isEmpty()) { positionType.setValue(missingData); }
-        if (this.coreCompetency.getValue().isEmpty()) { coreCompetency.setValue(missingData); }
-
-        return "\n" +
-                " ID: " + id +
-                "\n Name: " + name +
-                "\n Employer: " + employer +
-                "\n Location: " + location +
-                "\n Position Type: " + positionType +
-                "\n Core Competency: " + coreCompetency +
-                "\n";
-        }
     }
 
 

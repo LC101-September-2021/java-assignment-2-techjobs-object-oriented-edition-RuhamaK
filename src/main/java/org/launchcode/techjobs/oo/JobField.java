@@ -31,14 +31,15 @@ public abstract class JobField {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JobField jobField = (JobField) o;
-        return id == jobField.id;
+        JobField that = (JobField) o;
+        return getId() == that.getId();
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 
     //Getters & setters
 
