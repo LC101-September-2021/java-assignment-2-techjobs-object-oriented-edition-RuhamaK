@@ -15,14 +15,14 @@ import static org.junit.Assert.*;
 public class JobTest {
 
     @Test
-    public void  testSettingJobId(){
+    public void  testTestSettingJobIdExists(){
     Job testJob1 = new Job();
     Job testJob2 = new Job();
     assertFalse(testJob1.getId() == testJob2.getId());
     }
 
     @Test
-    public void testJobConstructorSetsAllFields(){
+    public void testTestJobConstructorSetsAllFields(){
     Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
             new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
@@ -40,7 +40,7 @@ public class JobTest {
     }
 
     @Test
-    public void testJobsForEquality(){
+    public void testTestJobsForEquality(){
     Job testJob4 = new Job("Java developer", new Employer("IBM"), new Location("Denver"),
             new PositionType("Senior Developer"), new CoreCompetency("Java"));
     Job testJob5 = new Job("Java developer", new Employer("IBM"), new Location("Denver"),
