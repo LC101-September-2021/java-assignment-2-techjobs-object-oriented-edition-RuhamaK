@@ -15,10 +15,10 @@ import static org.junit.Assert.*;
 public class JobTest {
 
     @Test
-    public void  testTestSettingJobIdExists(){
+    public void  testSettingJobId(){
     Job testJob1 = new Job();
     Job testJob2 = new Job();
-    assertFalse(testJob1.getId() == testJob2.getId());
+    assertEquals(testJob1.getId(),testJob2.getId() + 1);
     }
 
     @Test
